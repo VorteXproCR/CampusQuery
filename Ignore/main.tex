@@ -1,0 +1,470 @@
+
+\documentclass[12pt]{report}
+\usepackage[a4paper, left=1.5in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\usepackage{changepage}
+\usepackage{caption}
+\captionsetup{font=small} % small = 10pt in 12pt document
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}{\chaptername\ \thechapter}{16pt}{\Huge}
+
+\titleformat{\section}
+  {\normalfont\fontsize{14}{18}\bfseries}{\thesection}{1em}{}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\fontsize{16}{22}\selectfont\bfseries A NEW MULTILINGUAL CHATBOT USING MACHINE LEARNING\par}
+    \vspace{2cm}
+    {\fontsize{16}{22}\selectfont\bfseries MINI PROJECT\par}
+
+    \vspace{2cm}
+     {\fontsize{16}{22}\selectfont\bfseries MASTER OF COMPUTER APPLICATIONS\par}
+    \vfill
+    \includegraphics[width=0.2\textwidth]{MNNIT Logo New.jpg}
+    \\
+    {\large By Group 4:\par}
+    \vspace{0.5cm}
+    {\large Kamal Gurjar 2023CA50\\
+    Aniket Bisht 2023CA16\\
+    Anish Sayana 2023CA17\\
+    Gugulothu Shirisha 2023CA39\par}
+    \vfill
+    {\large Under the guidance of\par}
+    {\Large \textbf{Dr. Anoj Kumar}\par}
+    \vspace{1cm}
+    Department of Computer Science and Engineering\\
+    Motilal Nehru National Institute of Technology\\
+    Allahabad
+\end{titlepage}
+
+\chapter*{Undertaking}
+\addcontentsline{toc}{chapter}{Undertaking}
+We declare that the work presented in this report titled ``A New Multilingual Chatbot using Machine Learning'' submitted to the Computer Science and Engineering Department, Motilal Nehru National Institute of Technology Allahabad, Prayagraj, for the award of the Master of Computer Applications degree, is our original work. In case this undertaking is found incorrect, we accept that our degree may be unconditionally withdrawn.
+
+\vspace{2cm}
+April 2025
+
+\vspace{2cm} 
+Kamal Gurjar - 2023CA50\\
+Aniket Bisht - 2023CA16\\
+Anish Sayana - 2023CA17\\
+Gugulothu Shirisha - 2023CA39
+
+\chapter*{Certificate}
+\addcontentsline{toc}{chapter}{Certificate}
+This is to certify that Kamal Gurjar (2023CA50), Aniket Bisht (2023CA16), Anish Sayana (2023CA17), and Gugulothu Shirisha (2023CA39) successfully carried out the completion of the project entitled ``A New Multilingual Chatbot using Machine Learning'' under my supervision during session 2024-25 and all the requirements of the project have been met.
+
+\vspace{2cm}
+April 2025
+
+\vspace{2cm}
+\noindent\rule{10cm}{0.4pt}\\
+Dr. Anoj Kumar\\
+Computer Science and Engineering Dept.\\
+MNNIT Allahabad
+
+\chapter*{Acknowledgment}
+\addcontentsline{toc}{chapter}{Acknowledgment}
+We would like to give our sincere thanks to our mentor, Dr. Anoj Kumar, who guided us throughout our project ``A New Multilingual Chatbot using Machine Learning'' in every possible way with his invaluable advice and valuable suggestions. Our project would not have been possible without his constant guidance, support, and encouragement that helped us complete our project on time. We feel honored and privileged to work under him.
+
+\vspace{2cm}
+Kamal Gurjar - 2023CA50\\
+Aniket Bisht - 2023CA16\\
+Anish Sayana - 2023CA17\\
+Gugulothu Shirisha - 2023CA39
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+Our project, "A New Multilingual Chatbot using Machine Learning", is a web-based academic support platform developed specifically for students at MNNIT. It is designed to provide intelligent and accessible interaction with complex academic materials through natural language queries. Upon registration and login, users can upload documents such as notes, previous year questions (PYQs), and topic-wise study material. The chatbot then allows students to ask questions in plain English or other supported languages, retrieving and referencing the most relevant parts of the uploaded content to generate accurate, context-aware responses.
+\newline
+\vspace{1cm}
+This system is particularly beneficial for students who are more comfortable in regional languages—including many from South India or non-Hindi-speaking backgrounds—as it integrates multilingual translation capabilities. The chatbot ensures that language is not a barrier by enabling students to interact and learn in the language they are most comfortable with.
+\vspace{1cm}
+Under the hood, the platform uses Sentence Transformers for semantic embeddings and FAISS for efficient vector-based retrieval. These are combined with the Mistral 7B language model to generate coherent answers grounded in source documents. This hybrid of retrieval and generation makes the system not only informative but also verifiable and student-centric.
+By transforming static academic resources into an interactive learning experience, this chatbot empowers students with personalized, intelligent assistance—enhancing education accessibility, comprehension, and engagement at MNNIT.
+
+\tableofcontents
+\newpage
+
+
+
+\chapter{Introduction}
+
+\section{Motivation}
+Our project, "A New Multilingual Chatbot based on Machine Learning," is inspired by filling the gap between static study material and student interaction. In MNNIT, students tend to find it difficult to sift through large quantities of intricate study material, such as textbooks, previous year questions (PYQs), and research papers, to access specific information. This may be inefficient and time-consuming. Our project will allow students to more easily have a natural language interface simplify the process above, so that they can pose questions and obtain relevant information from uploaded documents in a more natural way.
+
+By using Retrieval-Augmented Generation (RAG), the chatbot provides improved access to study materials, enabling rapid and efficient learning. Not only does it help students find specific material in good time but also provides multilingual assistance, with the ability for students from diverse language backgrounds to be able to use the system. The system finally looks to enable students, improve content comprehension, and simplify the learning process at MNNIT.
+
+
+\section{Objective}
+The objective of our project is to develop a document-aware, intelligent Multilingual Chatbot where users are able to pose questions on user-uploaded academic material in natural language and receive back accurate, context-sensitive answers. With the use of state-of-the-art techniques like semantic vector embeddings, dense retrieval, and transformer-based text generation, the system retrieves the corresponding content chunks with efficiency and generates human-like responses depending on the context.
+Therein, we present a detailed analysis of the Multilingual Chatbot, including its most important functions, system framework, and methodologies for deployment. We also consider the benefits for its implementation amongst MNNIT's faculty members and students and conclude by elaborating on future potential improvements for its performance enhancement and expansion in terms of functions.
+
+\chapter{Literature Overview}
+The domain of intelligent chatbots has seen tremendous growth with the emergence of large language models (LLMs) and information retrieval methods. The previous chatbot systems were mostly dependent on rule-based or keyword-matching processes that did not have contextual knowledge and language variability. With the introduction of Transformer-based models like BERT, GPT, T5, and BART, the capacity to generate human-like, context-specific responses has improved tremendously [14].
+\\
+Recent advances in Retrieval-Augmented Generation (RAG) architecture enabled the hybridization of document retrieval and natural language generation. This hybrid initially retrieves similar text segments based on semantic similarity (e.g., using FAISS and SentenceTransformers) and feeds them to an LLM for generating grounded answers. It achieves both accuracy and explainability—two features imperative for education and legal application. [11]
+\\
+Multilingual support has become increasingly vital in education technology, especially in diverse countries like India. Tools like IndicTrans, mBART, and translation APIs (e.g., LibreTranslate, Google Translate) have made it easier to bridge linguistic gaps. This project's integration of multilingual capabilities ensures that students can interact in their preferred languages, breaking barriers to learning. [13]	
+
+\chapter{Software and Hardware Requirements}
+The technical requirements for implementing the proposed RAG Chatbot project are practical and accessible. However, for smooth performance, especially during embedding generation and language model inference, a stable internet connection and a reasonably powerful machine are recommended. The hardware needs are minimal for frontend use, while backend deployment may benefit from higher specs or cloud-based hosting.
+
+\section{Software Requirements}
+The technologies and libraries required for development and deployment are as follows:
+
+\begin{itemize}
+    \item Frontend: Streamlit
+    \item Backend: Python 3.9, FAISS, SentenceTransformers, HuggingFace Transformers
+    \item Python Libraries: numpy, pandas, sentence-transformers, transformers, faiss-cpu
+    \item Package Manager: pip
+\end{itemize}
+
+\section{Hardware Requirements}
+\begin{itemize}
+    \item OS: Windows 10 / Linux / macOS (preferred)
+    \item Processor: Intel Core i5 or equivalent
+    \item RAM: Minimum 4GB (8GB recommended)
+    \item Storage: 512MB+
+\end{itemize}
+
+\chapter{System Design}
+\section{Use Case Diagram}
+Below is the use case diagram for the RAG Chatbot for Intelligent Document Querying system. It depicts how a user interacts with the  chatbot to perform key actions such as uploading documents, asking questions, and viewing intelligent, document-grounded responses. The diagram highlights the primary use cases that reflect the user’s goals and   the system’s behavior in response to those goals.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{usecase.jpeg}
+    \caption{Use Case Diagram}
+\end{figure}
+% Placeholder for actual diagram
+
+\newpage
+\section{Data Flow Diagrams}
+\section{Level 0 DFD}
+DFD Level 0 is a low-level, high-level simplified view of the whole RAG Chatbot System. It shows the system as one process communicating with external parties, i.e., users, and shows the predominant data flow between the system, the users, and the main data stores like the document and embedding database. This level facilitates an understanding of the boundary and scope of the system without going into its inner detail.
+
+\par\vspace{1cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Level_0.drawio.png}
+    \caption{Level 0 DFD}
+\end{figure}
+
+
+\newpage
+\section{Level 1 DFD}
+The Level 1 Data Flow Diagram (DFD) is a detailed breakdown of the major sub-processes that make up the entire RAG Chatbot System. It is an extended version of the context diagram, giving a more in-depth view of the internal workings. After taking in a user query, the system initially converts the input into an embedding vector using a sentence embedding model. This vector is used to conduct a semantic search in the Knowledge Base, which has been populated with document embeddings that have been generated earlier. The most contextually relevant content chunks are fetched and sent to a Large Language Model (LLM), like Mistral 7B, to create a coherent and contextually relevant response. This response is then presented to the user, making sure that the system returns accurate and document-based answers specific to the query.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Level_1.drawio.png}
+    \caption{Level 0 DFD}
+\end{figure}
+
+
+\newpage
+\section{Pseudocode}
+\begin{verbatim}
+START
+1. Load Academic Dataset
+    - Collect academic documents (PYQs, notes, textbooks)
+    - FOR each document:
+        a. Extract raw text (use OCR if scanned)
+        b. Clean the text (remove formatting, headers/footers)
+        c. Chunk text into smaller segments (100–300 words)
+        d. FOR each chunk:
+            i. Generate semantic embedding using SentenceTransformers
+            ii. Store chunk and its embedding in FAISS vector store
+
+2. User Query Input
+    - User enters a natural language question (in English or other language)
+    - IF query is in a non-English language THEN
+        a. Translate query to English using translation API or mBART
+
+3. Semantic Retrieval
+   - Convert query into an embedding vector using the same model applied 
+   during document processing
+    - Search the FAISS vector database for chunks that are semantically 
+    similar to the query
+    - Pick the top-k chunks that best match the meaning of the question
+
+4. Generate Answer
+    - Send retrieved chunks and the original query as input to Mistral 7B 
+    model
+    - Generate a natural language answer grounded in the retrieved content
+
+5. Translate Answer (if needed)
+    - IF original query was non-English THEN
+        a. Translate generated answer back to user's language
+
+6. Display Result
+    - Show final answer to the user
+    - Optionally, provide source reference from the matched document chunk
+
+END
+\end{verbatim}
+
+\chapter{Proposed Work}
+\section{Requirement Gathering}
+This phase focuses on identifying the core requirements and functionalities of the RAG chatbot system. Key requirements include document upload capabilities, natural language question answering, semantic search using embeddings, integration of a generative model for responses, and a user-friendly interface for seamless interaction. Additional requirements may include support for multiple file formats (e.g., PDF, DOCX), conversational context, and response traceability.
+
+\section{Design and Architecture}
+The design of the system is aimed at building an intuitive and interactive front-end with Streamlit to allow users to upload documents easily and pose questions in natural language. In the backend, rather than a conventional server-based design, the solution is based on a light, modular setup that manages document chunking, embedding generation, and vector storage through FAISS. These pieces collaborate to enable a Retrieval-Augmented Generation (RAG) pipeline, in which the vector store retrieves relevant information and feeds it into the Mistral 7B language model to generate context-aware responses. This simplified architecture provides efficient performance without the overhead of handling RESTful APIs or a complete backend.
+
+\section{Development}
+The deployment is done using contemporary web and machine learning technologies. Streamlit is used to develop the front-end, which offers an easy and interactive interface for users to upload documents and input queries. Rather than a full-fledged backend, the system depends on Python scripts to handle core logic, such as:
+\begin{itemize}
+    \item Document parsing and preprocessing
+    \item Creating vector embeddings with SentenceTransformers
+    \item Retrieving relevant chunks and sending them to the Mistral 7B model for responding
+Libraries like Hugging Face Transformers and SentenceTransformers make it easy to integrate both retrieval and generative functionality into the RAG pipeline. This light design allows for rapid deployment, simple maintenance, and optimal performance.
+\end{itemize}
+% • Document parsing and preprocessing
+% • Creating vector embeddings with SentenceTransformers
+% • Retrieving relevant chunks and sending them to the Mistral 7B model for responding
+% Libraries like Hugging Face Transformers and SentenceTransformers make it easy to integrate both retrieval and generative functionality into the RAG pipeline. This light design allows for rapid deployment, simple maintenance, and optimal performance.
+
+\section{Testing}
+This stage includes extensive testing of the chatbot's performance and reliability. Functionality testing verifies correct retrieval and appropriate responses. Performance testing verifies the response time of the system under different query loads. Security testing verifies document privacy and secure API communication. User feedback is gathered to refine the chatbot's UX and accuracy.
+
+\section{Maintenance and Updates}
+Post-deployment, the system should be able to run with little maintenance while ensuring a strong and responsive user experience. Monitoring concentrates on important parameters like response relevance, retrieval correctness, and general system performance. Regular updates may comprise:
+• Enhancements to embedding quality or switching to improved embedding models
+• Optimizing vector search performance within FAISS
+• Updating the interface for better usability and accessibility
+• Integrating feedback to fine-tune retrieval strategies and improve output coherence
+
+Given the modular nature of the architecture, updates can be rolled out with minimal disruption, ensuring the system remains efficient and user-friendly over time.
+The system presented in this report builds on such foundational tools and concepts by using:
+Mistral-7B for generation,
+SentenceTransformers for semantic search,
+mBart for multilingual support,
+FAISS for vector storage and retrieval, and
+Streamlit for a lightweight and user-friendly interface.
+Thus, this project contributes to the growing landscape of intelligent, inclusive, and accessible chatbot platforms by applying modern NLP techniques to real-world academic challenges.
+
+\newpage
+\section{Architecture}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{ragArchitecture.png}
+    \caption{Architecture of Chatbot}
+\end{figure}
+
+\newpage
+
+\section{Phases}
+\textbf{Phase 1 – Document Processing:}
+This phase begins when the user uploads raw academic documents such as PDFs, Word files, or scanned text. These files are first pre-processed to extract clean, readable text. The extracted text is then segmented into smaller chunks (typically 100–300 words) to make it manageable for further processing. Each chunk is converted into a high-dimensional vector using embedding models like Sentence Transformers, which capture the semantic meaning of the content. These embeddings are then stored in a knowledge database (vector store), forming the basis for future semantic search operations. This structured and pre-indexed format ensures fast and accurate retrieval during user interactions.
+\\
+\newline
+\textbf{Phase 2 – Query Handling:}
+In this phase, the system deals with user queries. When a user enters a question in natural language, it is processed and converted into an embedding vector—essentially translating the query into a mathematical form that captures its meaning. This query embedding is then compared against the stored embeddings in the knowledge database using semantic similarity search techniques (e.g., FAISS). The system retrieves the top-matching chunks of content that are most relevant to the query, effectively filtering and ranking context from the entire knowledge base in real time.
+\\
+\newline
+\textbf{Phase 3 – Answer Generation:}
+Once the most relevant chunks are retrieved, they are passed to a Large Language Model (LLM) such as Mistral 7B. The LLM employs these chunks as context input to construct a final, fluent response based on the original documents. This guarantees the response is not only natural-sounding but also factually consistent with the uploaded material. The final response is then output to the user via the interface, marking the completion of the intelligent query-to-answer loop.
+
+
+\chapter{Implementation}
+The deployment of the RAG Chatbot system is composed of several components, such as front-end development, back-end development, and integrating machine learning models for document retrieval and generation.
+
+\section{Front-End Development}
+The chatbot front-end is built with Streamlit, giving a minimalist and interactive web interface. Users are able to upload files, provide queries in various languages, and see returned responses. The interface features a login and registration mechanism for security, user query and answer multilingual support, and real-time output of chatbot responses. Emphasis is placed on providing a user-friendly experience such that even non-technical users can easily interact with the system.
+
+
+\section{Back-End Development}
+The back-end is implemented with Python scripts in a non-heavy server framework modular architecture. It performs document text extraction, cleaning, chunking, generation of embeddings, and storing in a FAISS vector database for semantic search efficiency. The back-end also deals with multilingual translation of queries from users and generates answers if necessary, based on mBART or translation APIs. Keeping the backend lightweight and script-based ensures fast execution and simple maintainability.
+
+
+\section{Machine Learning Implementation}
+The machine learning component of the system employs a Retrieval-Augmented Generation (RAG) method. SentenceTransformers are employed for semantic embeddings of queries and documents to facilitate meaningful similarity search. Retrieved document chunks and user queries are input to the Mistral 7B large language model for answer generation, yielding coherent and context-sensitive responses. Multilingual support is incorporated to enable users to communicate in their desired language, making the system inclusive and accessible.
+
+
+\section{Document Collection}
+Collecting relevant documents is one of the foundational steps in building a Retrieval-Augmented Generation (RAG) chatbot. The system is designed to work with user-uploaded content such as PDFs, Word documents, and text files. These documents may include research papers, policy manuals, academic syllabi, corporate knowledge bases, or legal case files.
+
+The PDFs in the dataset (data/) are preprocessed to extract text content, clean it, and prepare it for embedding.
+(PDF → text → clean text)
+\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{dataCollection.png}
+    \caption{Dataset}
+\end{figure}
+
+
+\section{Data Pre-processing}
+Data pre-processing in a RAG chatbot context involves several critical steps to prepare unstructured text for semantic search and generation:
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{preprocess.png}
+    \caption{Pre-processing}
+\end{figure}
+
+\newpage
+\subsection{Text Cleaning}
+This involves removing unnecessary formatting, whitespace, headers/footers, and correcting OCR errors if any. Clean text ensures consistent chunking and embedding quality.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{text_clean.png}
+    \caption{Text Cleaning}
+\end{figure}
+
+
+\subsection{Document Chunking}
+Long documents are split into manageable chunks (typically 100–300 words each) using either semantic boundaries or sentence/paragraph segmentation. It is crucial because most transformer-based models have token limitations.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{createChunks.png}
+    \caption{Chunks creation}
+\end{figure}
+
+\newpage
+\subsection{Embedding Generation}
+Each chunk is converted into a dense vector representation using pretrained models such as all-MiniLM-L6-v2 or other Sentence Transformers. These embeddings preserve semantic meaning and are stored in a vector database for efficient retrieval.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth, height=0.3\textheight]{embedding.png}
+    \caption{Embeddings}
+\end{figure}
+
+
+\subsection{Metadata Tagging}
+Each chunk is tagged with source information (e.g., document title, page number, section heading) to provide context in the generated response and allow traceability.
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{metadata.png}
+    \caption{Extracting Metadata}
+\end{figure}
+
+
+\newpage
+\section{Retrieval-Augmented Generation Pipeline}
+The RAG architecture combines the best of both worlds: document retrieval and language generation. 
+
+\subsection{Query Processing}
+The user submits a natural language query, which is embedded into a semantic vector.
+
+\subsection{Context Retrieval}
+The system uses similarity search (via FAISS or Pinecone) to retrieve the top-k most relevant chunks from the document store.
+
+\subsection{Generative Response}
+Retrieved chunks are passed as input to a generative language model such as T5, BART, or GPT. The model produces a natural-sounding, context-aware answer grounded in the source documents.
+
+\subsection{Evaluation and Optimization}
+The chatbot's performance is periodically evaluated based on user feedback, BLEU score(for response quality), and response latency. Continuous fine-tuning ensures the model remains relevant and efficient.
+
+\subsection{Answer Presentation}
+The final response is shown to the user with an option to trace back the answer to the original document chunk, enhancing trust and interpretability.
+
+
+\chapter{Results}
+\section{Multilingual Response}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{multilingualResponse.png}
+\caption{Data collection process}
+\label{fig:data-collection}
+\end{figure}
+
+
+
+
+The chatbot interface translates technical queries like "Explain Pushdown Automata" into Hindi using multilingual capabilities. 
+
+It supports file uploads and dynamic language selection, enhancing accessibility for diverse users.
+
+
+\newpage
+
+\section{Querying Question Papers and Solutions}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{paperQuery2.png}
+\caption{Question Paper Query}
+\label{fig:data-collection}
+\end{figure}
+
+
+\section{Querying Links of PYQ}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{allPYQs.png}
+\caption{PYQs Links}
+\label{fig:data-collection}
+\end{figure}
+
+\newpage
+\section{Querying Specific Topic}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{TopicQuery.png}
+\caption{Topics Query}
+\label{fig:data-collection}
+\end{figure}
+
+
+\chapter{Conclusion and Future Work}
+\section{Conclusion}
+The Intelligent Document Querying Chatbot project is a major breakthrough in how one can navigate huge amounts of text data. Through the use of the Retrieval-Augmented Generation (RAG) architecture, we have been able to prove a system that extracts meaningful knowledge from uploaded documents and yields coherent, context-sensitive answers to natural language questions.
+\\ 
+This project demonstrates the successful integration of contemporary Large Language Model (LLM) technologies—semantic embeddings, vector similarity search, and transformer based generative models—to produce a frictionless and intelligent user experience. The chatbot solves actual real-world problems encountered in areas such as education, enterprise documentation, legal reference, and research by providing efficient and precise access to salient information hidden in deep documents.
+Our work closes the gap between fixed content and interactive access, diminishing user cognitive load and enhancing user empowerment in the form of a conversational interface that comprehends and references their data in real-time.
+
+
+\section{Future Work}
+Future development of the RAG Chatbot platform will seek to broaden its functionality and flexibility. Foremost among these in development is multimodal document support—scanned documents, images, tables, and diagrams—via OCR and associated techniques. Multi-turn conversational memory integration will allow the chatbot to keep track of context over multiple interactions, making responses more relevant and consistent.
+In order to enhance adaptability in dynamic situations, the platform will incorporate real-time API integration to permit access to real-time data and outside systems. Scalability will guarantee performance throughout a variety of applications, ranging from personal usage to enterprise-wide deployment. Also, team-based collaboration tools such as shared document spaces and group Q&A will render the chatbot useful in academic, business, and organizational environments.
+
+\newpage
+\begin{center}
+    \Large \textbf{REFERENCES}
+\end{center}
+
+\vspace{1cm} 
+
+\begin{enumerate}
+    \item Hugging Face, “Hugging Face Transformers.” Available: \url{https://huggingface.co/transformers/}. [Accessed: Jan. 18, 2025].
+    \item N. Reimers and I. Gurevych, “SentenceTransformers.” Available: \url{https://www.sbert.net/}. [Accessed: Feb. 5, 2025].
+    \item Facebook AI Research, “FAISS - Facebook AI Similarity Search.” Available: \url{https://faiss.ai/}. [Accessed: Feb. 24, 2025].
+    \item Python Software Foundation, “Python.” Available: \url{https://www.python.org/}. [Accessed: Jan. 27, 2025].
+    \item Streamlit Inc., “Streamlit.” Available: \url{https://streamlit.io/}. [Accessed: Mar. 3, 2025].
+    \item Mistral AI, “Mistral 7B Model.” Available: \url{https://huggingface.co/mistralai/Mistral-7B-v0.1}. [Accessed: Apr. 2, 2025].
+    \item Google, “Bard by Google.” Available: \url{https://bard.google.com/}. [Accessed: Feb. 15, 2025].
+    \item Stack Overflow, “Stack Overflow – Developer Community.” Available: \url{https://stackoverflow.com/}. [Accessed: Mar. 22, 2025].
+    \item Tesseract OCR, “Tesseract OCR GitHub Repository.” Available: \url{https://github.com/tesseract-ocr/tesseract}. [Accessed: Jan. 30, 2025].
+    \item S. Neupane et al., “From Questions to Insightful Answers: Building an Informed Chatbot for University Resources,” arXiv preprint arXiv:2405.08120, May 2024. Available: \url{https://arxiv.org/abs/2405.08120}. [Accessed: Feb. 10, 2025].
+    \item M. Thway et al., “Battling Botpoop using GenAI for Higher Education: A Study of a Retrieval Augmented Generation Chatbot's Impact on Learning,” arXiv preprint arXiv:2406.07796, Jun. 2024. Available: \url{https://arxiv.org/abs/2406.07796}. [Accessed: Mar. 5, 2025].
+    \item M. Kulkarni et al., “Reinforcement Learning for Optimizing RAG for Domain Chatbots,” arXiv preprint arXiv:2401.06800, Jan. 2024. Available: \url{https://arxiv.org/abs/2401.06800}. [Accessed: Apr. 15, 2025].
+    \item S. Bhattacharjee, “Multilingual Chatbot using RAG and Open Source LLM,” GoPenAI Blog, Jul. 2024. Available: \url{https://blog.gopenai.com/multilingual-chatbot-using-rag-and-open-source-llm-b19cf759f074}. [Accessed: Feb. 20, 2025].
+    \item “Bilingual AI-Driven Chatbot for Academic Advising,” International Journal of Advanced Computer Science and Applications, vol. 13, no. 8, 2022. Available: \url{https://thesai.org/Downloads/Volume13No8/Paper_8-Bilingual_AI_Driven_Chatbot_for_Academic_Advising.pdf}. [Accessed: Jan. 25, 2025].
+\end{enumerate}
+
+
+\end{document}

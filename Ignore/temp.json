@@ -1,0 +1,56 @@
+[
+  {
+    "course": "MCA",
+    "subjects": [
+      {
+        "subject": "DBMS",
+        "papers": {
+          "midsem": {
+            "2023": "https://drive.google.com/file/d/180d0FhVcuD9lWAQTVXFdupjvDn__oYUv/view?usp=share_link"
+          },
+          "endsem": {
+            "2023": "https://drive.google.com/file/d/1WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Algorithms",
+        "papers": {
+          "midsem": {
+            "2023": "https://drive.google.com/file/d/2WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2023": "https://drive.google.com/file/d/3WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "course": "BTech",
+    "subjects": [
+      {
+        "subject": "Mathematics",
+        "papers": {
+          "midsem": {
+            "2023": "https://drive.google.com/file/d/4WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2023": "https://drive.google.com/file/d/5WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Physics",
+        "papers": {
+          "midsem": {
+            "2023": "https://drive.google.com/file/d/6WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2023": "https://drive.google.com/file/d/7WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      }
+    ]
+  }
+]
