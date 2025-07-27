@@ -1,0 +1,101 @@
+[
+  {
+    "course": "MCA",
+    "subjects": [
+      {
+        "subject": "DBMS",
+        "aliases": ["Database Management", "Database Management Systems"],
+        "semester": 3,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/180d0FhVcuD9lWAQTVXFdupjvDn__oYUv/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/180d0FhVcuD9lWAQTVXFdupjvDn__oYUv/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Algorithms",
+        "aliases": ["algo", "algorithm"],
+        "semester": 3,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/1WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/1WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Object Based Modeling",
+        "aliases": ["obm", "OBM"],
+        "semester": 3,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/1ySsB1FnMpC7YLh0YBCYCxOdC3qSvwMaU/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/1ySsB1FnMpC7YLh0YBCYCxOdC3qSvwMaU/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Operating System",
+        "aliases": ["os", "operating systems", "op system"],
+        "semester": 3,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/1IIxmWoP0G3AoY86dXA0LuysAnop41ZJs/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/1IIxmWoP0G3AoY86dXA0LuysAnop41ZJs/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Soft Computing",
+        "aliases": ["soft comp"],
+        "semester": 3,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/163gyhB-4uyukqxdS4qCtWtrkXUHmsOA9/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/163gyhB-4uyukqxdS4qCtWtrkXUHmsOA9/view?usp=share_link"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "course": "BTech",
+    "subjects": [
+      {
+        "subject": "Mathematics",
+        "semester": 1,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/4WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/5WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      },
+      {
+        "subject": "Physics",
+        "semester": 1,
+        "papers": {
+          "midsem": {
+            "2022": "https://drive.google.com/file/d/6WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          },
+          "endsem": {
+            "2022": "https://drive.google.com/file/d/7WiWFvb53L-_uAV6sJmmVcUeVX3s0Jkzw/view?usp=share_link"
+          }
+        }
+      }
+    ]
+  }
+]
